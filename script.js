@@ -78,7 +78,7 @@ const interval = setInterval(() => {
 }, 1000);
 
 
-/* ********** musica ********** */
+/* ********** musica 
 document.addEventListener('DOMContentLoaded', function() {
   const musicBtn = document.querySelector('.music-btn');
   const audio = document.getElementById('bg-music');
@@ -96,3 +96,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+********** */

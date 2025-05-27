@@ -34,12 +34,7 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('fonts/Comfortaa-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
+
 
 @font-face {
   font-family: 'Comfortaa';
@@ -48,12 +43,7 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('fonts/Comfortaa-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
+
 
 /* ********** Reset ********** */
 html {
@@ -82,19 +72,15 @@ a {
 
 h1,
 h2,
+h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-title);
-  color: var(--accent-gold);
+  font-family: var(--second-color);
+  color: var(--white-alpha-color);
   letter-spacing: 1px;
 }
 
-h3 {
-  font-family: 'Comfortaa', cursive, sans-serif;
-  font-size: 0.8rem;
-  margin: 0px 100px 0px 100px;
-}
 
 p,
 li,
@@ -104,37 +90,6 @@ textarea,
 button {
   font-family: var(--font-text);
 }
-
-/* ********** BACK TO TOP ********** */
-
-.back-to-top {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem auto 1rem auto;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--alternative-color);
-  font-size: 2rem;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: background 0.2s;
-}
-
-.back-to-top:hover {
-  background: var(--third-color);
-  color: var(--white-color);
-}
-
-@media (min-width: 768px) {
-  .back-to-top {
-    display: flex;
-  }
-}
-
-
 
 /* ********** Menú y Header ********** */
 .logo {
@@ -309,12 +264,12 @@ button {
 }
 
 .typewrite {
-  font-family: 'Comfortaa', cursive, sans-serif;
-  text-transform: uppercase;
+  font-family: 'Dantina', cursive, sans-serif;
+  text-transform:inherit;
   letter-spacing: 2px;
   font-weight: 700;
   font-size: 3rem;
-  color: var(--accent-gold);
+  color: var(--first-color);
   text-align: center;
   margin: 4rem auto;
   max-width: 800px;
@@ -498,29 +453,6 @@ button {
 }
 
 
-/* ********** Banner  ********** */
-@keyframes banner {
-
-  0%,
-  25% {
-    background-image: url(recursos/carrousel-1.jpg);
-  }
-
-  26%,
-  50% {
-    background-image: url(recursos/carrousel-2.jpg);
-  }
-
-  51%,
-  75% {
-    background-image: url(recursos/carrousel-3.jpg);
-  }
-
-  76%,
-  100% {
-    background-image: url(recursos/carrousel-4.jpg);
-  }
-}
 
 .banner {
   position: relative;
@@ -549,7 +481,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   padding-bottom: 0;
   /* Aumenta este valor para subir el texto */
   padding-left: 4vw;
@@ -583,182 +515,12 @@ button {
 }
 
 
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(43, 43, 43, 0.45);
-  /* Ajusta la opacidad aquí */
-  z-index: 2;
-  pointer-events: none;
-}
-
-
 
 #fecha-evento {
   font-size: 1.2rem;
   font-family: 'Comfortaa', cursive, sans-serif;
   margin: 0;
 }
-
-
-
-
-
-
-/* ********** Galería y Mi Historia ********** */
-.section-title.mi-historia-titulo {
-  font-family: 'Dantina', cursive, sans-serif;
-  color: var(--second-color);
-  font-size: 3rem;
-  text-align: center;
-  margin: 2rem auto 1.5rem auto;
-  width: auto;
-  max-width: 100%;
-  background: none;
-  border: none;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  white-space: normal;
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .section-title.mi-historia-titulo {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .section-title.mi-historia-titulo {
-    font-size: 2rem;
-  }
-}
-
-.mi-historia-textos {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-}
-
-#galeria2 {
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.linea {
-  background-color: var(--black-color);
-  height: 5px;
-  width: 100%;
-  display: block;
-}
-
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 1rem auto;
-  padding: 0 1rem;
-}
-
-.galeria>a {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-}
-
-.galeria img {
-  width: 100%;
-  vertical-align: top;
-  height: 500px;
-  object-fit: cover;
-  transition: 0.5s;
-}
-
-.galeria a:hover img {
-  transform: scale(1.5);
-}
-
-@media (max-width: 900px) {
-  .galeria {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .galeria {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width:400px) {
-  .galeria {
-    grid-template-columns: repeat(auto-fit) minmax(400px, 1fr);
-  }
-
-  .close {
-    top: 20px;
-    right: 20px;
-  }
-}
-
-/* ********** Lightbox ********** */
-.light-box {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  transition: transform .3s ease-in-out;
-  width: 100%;
-  height: 100vh;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(0);
-}
-
-.light-box img {
-  max-width: 80%;
-  max-height: 90%;
-}
-
-.light-box:target {
-  transform: scale(1);
-}
-
-.close {
-  display: block;
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  background: var(--gray-dark-color);
-  color: var(--white-color);
-  text-decoration: none;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-}
-
-.next {
-  display: block;
-  color: var(--white-color);
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-  text-decoration: none;
-  text-align: center;
-  background: var(--gray-dark-color);
-}
-
 
 
 /* ***** RSVP y Locación  **** */
@@ -806,29 +568,7 @@ button {
   object-fit: contain;
 }
 
-@keyframes bounce-zoom-rotate {
 
-  0%,
-  100% {
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-
-  20% {
-    transform: translateY(-8px) scale(1.08) rotate(-6deg);
-  }
-
-  40% {
-    transform: translateY(-16px) scale(1.12) rotate(6deg);
-  }
-
-  60% {
-    transform: translateY(-8px) scale(1.08) rotate(-4deg);
-  }
-
-  80% {
-    transform: translateY(0) scale(1.04) rotate(2deg);
-  }
-}
 
 .fiesta-icon1,
 .fiesta-icon {
@@ -956,132 +696,14 @@ button {
 }
 
 .rsvp-bg-separator {
-  /* Cambia este color por el que prefieras */
-  background: var(--accent-gold-alpha) url('img/fondo-flores-doradas.png') center center no-repeat;
-  background-size: contain;
-  /* o cover, según prefieras */
+  background: var(--title-color) url('img/fondo.png') center center no-repeat;
+  background-size: cover; /* Cambiado de contain a cover */
   margin: 0;
   padding: 1rem 0 1rem 0;
+  
+  width: 100%;
 }
 
-/* ===== Carrusel de Testimonios ===== */
-
-/* Centra verticalmente el contenido de .container */
-#testimonios .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 60vh;
-  /* Ajusta según el alto que desees para el área de testimonios */
-}
-
-#testimonios .section-title {
-  font-size: 3em;
-  line-height: 1.1;
-  color: var(--accent-gold-alpha);
-  /* Color de los títulos */
-  max-width: 500px;
-  /* Limita el ancho para menos saltos de línea */
-  margin-left: auto;
-  margin-right: auto;
-  white-space: normal;
-  text-align: center;
-}
-
-#testimonios .slide h2 {
-  font-size: 2em;
-  color: var(--second-color);
-  /* O el color que prefieras */
-  margin-top: 1em;
-  margin-bottom: 0;
-  font-family: 'Dantina', cursive, sans-serif;
-}
-
-#testimonios .slide h4 {
-  font-size: 1.3em;
-  color: var(--gray-dark-color);
-  /* O el color que prefieras */
-  margin-bottom: 0.5em;
-  font-family: 'Comfortaa', cursive, sans-serif;
-}
-
-#testimonios blockquote {
-  margin-left: 2.5em;
-  margin-right: 2.5em;
-  font-size: 1.15em;
-  font-style: italic;
-  color: var(--gray-dark-color);
-  text-align: center;
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  #testimonios blockquote {
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-}
-
-.carousel {
-  --carousel-bg-color: var(--white-alpha-color);
-  background: var(--carousel-bg-color);
-  margin: 2rem auto;
-  margin-top: 2.5rem;
-  /* Ajusta el valor según el espacio que desees */
-  max-width: 600px;
-  border-radius: 1.5em;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  padding: 2em 2em;
-  position: center;
-}
-
-.carousel input[type="radio"] {
-  display: none;
-}
-
-.carousel .slides {
-  list-style: none;
-  padding: 0;
-  margin: 2rem;
-}
-
-.carousel .slide {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 0.7s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.avatar {
-  width: 300px;
-  /* Puedes ajustar este valor, por ejemplo 120px o 140px */
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1em;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
-}
-
-.bg-gray-light {
-  background-color: var(--gray-light-color);
-}
-
-.box-shadow-1 {
-  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
-}
 
 .btn {
   border-radius: 0.5rem;
@@ -1151,72 +773,13 @@ button {
   opacity: 0.1;
 }
 
-.hero-image {
-  position: relative;
-  min-height: 400px;
-  /* o el alto que necesites */
-  background: var(--hero-image, none) center center/cover no-repeat;
-  /* fallback para navegadores que no soportan custom properties */
-  background-image: var(--hero-image);
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-image-content {
-  padding-bottom: 2rem;
-  /* Ajusta el valor según lo que necesites */
-}
-
-/* Mostrar solo la slide activa según el radio seleccionado */
-#slide-1:checked~.slides .slide:nth-child(1),
-#slide-2:checked~.slides .slide:nth-child(2) {
-  display: flex;
-}
-
-.carousel .avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1em;
-}
-
-.carousel blockquote {
-  font-style: italic;
-  margin: 1em 0;
-  color: #444;
-}
-
-.slides-nav {
-  display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  margin-top: 1em;
-}
-
-.slides-nav label {
-  width: 12px;
-  height: 12px;
-  background: var(--accent-gold);
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#slide-1:checked~.slides-nav label#dot-1,
-#slide-2:checked~.slides-nav label#dot-2 {
-  background: var(--title-color);
-}
-
-
 /* ********** Footer ********** */
 .footer {
-  margin-bottom: var(--header-height);
+  margin-bottom: var(--second-color);
   padding: 0.5rem;
   text-align: center;
   color: var(--text-color);
-  background-color: var(--white-color);
+
 }
 
 .footer a {
