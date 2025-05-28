@@ -746,6 +746,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 1.5em 1em;
   }
 
   .location-buttons,
@@ -767,11 +768,9 @@ button {
 
 .rsvp-bg-separator {
   background: var(--title-color) url('img/fondo.png') center center no-repeat;
-  background-size: cover;
-  /* Cambiado de contain a cover */
+  background-size: cover;   /* Cambiado de contain a cover */
   margin: 0;
-  padding: 1rem 0 1rem 0;
-
+  padding: 1rem 0 1rem 1rem;
   width: 100%;
 }
 
