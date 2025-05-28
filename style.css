@@ -497,27 +497,28 @@ button {
   }
 
 
-/* Tablets */
-@media (max-width: 768px) {
-  .typewrite {
-    font-size: 1.5rem;
-    margin: 2rem auto;
-    letter-spacing: 1.5px;
+  /* Tablets */
+  @media (max-width: 768px) {
+    .typewrite {
+      font-size: 1.5rem;
+      margin: 2rem auto;
+      letter-spacing: 1.5px;
+    }
   }
-}
 
-/* Móviles */
-@media (max-width: 480px) {
-  .typewrite {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    margin: 1.5rem auto;
-  }
-  .banner-content>h2 {
+  /* Móviles */
+  @media (max-width: 480px) {
+    .typewrite {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin: 1.5rem auto;
+    }
+
+    .banner-content>h2 {
       font-size: 1rem;
       text-align: center;
     }
-}
+  }
 
 }
 
@@ -739,14 +740,14 @@ button {
     gap: 2em;
   }
 
+
   .rsvp,
   .location-box {
-    max-width: 95vw;
-    min-width: 0;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    /* o el ancho que prefieras */
     padding: 1.5em 1em;
+    box-sizing: border-box;
   }
 
   .location-buttons,
@@ -764,11 +765,24 @@ button {
     width: 100%;
     justify-content: center;
   }
+
 }
+
+@media (max-width: 600px) {
+  .rsvp {
+    width: auto; /* <-- esto evita el conflicto */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}
+
 
 .rsvp-bg-separator {
   background: var(--title-color) url('img/fondo.png') center center no-repeat;
-  background-size: cover;   /* Cambiado de contain a cover */
+  background-size: cover;
+  /* Cambiado de contain a cover */
   margin: 0;
   padding: 1rem 0 1rem 1rem;
   width: 100%;
