@@ -70,16 +70,6 @@ a {
   transition: all 0.5s ease-out;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--second-color);
-  color: var(--white-alpha-color);
-  letter-spacing: 1px;
-}
 
 
 p,
@@ -89,6 +79,7 @@ input,
 textarea,
 button {
   font-family: var(--font-text);
+  color: var(--text-color);
 }
 
 /* ********** Menú y Header ********** */
@@ -121,87 +112,6 @@ button {
   color: var(--accent-gold);
 }
 
-.menu {
-  position: fixed;
-  left: 0px;
-  bottom: var(--header-height);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--first-color);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 1001;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  max-width: 100vw;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-.menu-btn {
-  outline: thin solid var(--second-color);
-  border: 0;
-  cursor: pointer;
-  background-color: var(--second-color);
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: auto;
-  transform: none;
-  z-index: 1100;
-  width: 100%;
-  max-width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-
-.menu-btn svg {
-  fill: var(--first-color);
-}
-
-
-.menu.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.menu a {
-  padding: 0.5rem;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  text-decoration: none;
-  color: var(--second-color);
-  font-family: 'Comfortaa', cursive, sans-serif;
-  background: none;
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s, border-bottom 0.3s;
-}
-
-.menu a:hover,
-.menu a:focus {
-  color: var(--third-color);
-  border-bottom: 2px solid var(--second-color);
-  background: none;
-}
-
-@media (max-width: 1023px) {
-
-  .menu a:hover,
-  .menu a:focus {
-    background: var(--accent-gold-alpha);
-    color: var(--second-color);
-    border-bottom: none;
-    border-radius: 0.5em;
-    transition: background 0.2s, color 0.2s;
-  }
-}
-
 .header {
   position: fixed;
   left: 0;
@@ -229,38 +139,16 @@ button {
   .logo a {
     font-size: 1rem;
   }
+  .typewrite {
+    font-size: 0.5rem;
+  }
 }
 
-@media screen and (min-width: 1024px) {
-  .menu-btn {
-    display: none;
-  }
-
-  .menu {
-    position: static;
-    width: auto;
-    flex-direction: row;
-    opacity: 1;
-    pointer-events: auto;
-    background-color: var(--first-color);
-    box-shadow: none;
-  }
-
-  .menu a {
-    padding: 0 0.5rem;
-    font-size: 1rem;
-  }
-
-  .menu a:last-child {
-    padding-right: 0;
-  }
-
-  .header {
-    position: sticky;
-    top: 0;
-    padding: 0.5rem;
-    height: calc(var(--header-height) - 0.5rem);
-  }
+.header {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem;
+  height: calc(var(--header-height) - 0.5rem);
 }
 
 .typewrite {
@@ -306,221 +194,6 @@ button {
   /* Asegura el posicionamiento absoluto del botón */
 }
 
-/* ********** Countdown ********** */
-
-.countdown-container {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  overflow: visible;
-  background: none;
-  bottom: 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.countdown-hero {
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  /* O ajusta según lo que necesites */
-  bottom: 0rem;
-  transform: translateX(-50%);
-  z-index: 6;
-  padding: 4.5em 4.5em;
-  /* Aumenta el padding para que el círculo no tape el texto */
-  text-align: center;
-  min-width: 260px;
-  max-width: 95vw;
-  width: auto;
-  background: transparent;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  overflow: visible;
-}
-
-.countdown-flowers {
-  position: absolute;
-  left: 50%;
-  top: 90%;
-  /* O ajusta según lo que necesites */
-  height: auto;
-  transform: translate(-50%, -10%);
-  /* Centrada y sobresaliendo hacia abajo */
-  pointer-events: none;
-  z-index: 5;
-  /* Debajo del countdown, encima del video */
-  overflow: visible;
-  width: 100vw;
-  max-width: 520px;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-
-.countdown-circle-outline {
-  position: absolute;
-  left: 50%;
-  /* El top se ajusta para que queden bajo las flores */
-  top: 60%;
-  border: 1.5px solid var(--white-alpha-color);
-  /* Borde blanco y fino */
-  border-radius: 50%;
-  background: transparent;
-  pointer-events: none;
-  z-index: 2;
-  /* Debajo del countdown, encima del video */
-
-}
-
-/* Primer círculo: mismo ancho que las flores */
-
-.circle1 {
-  width: 85vw;
-  max-width: 440px;
-  aspect-ratio: 1 / 1;
-  --x: -48%;
-  --y: -4%;
-  transform: translate(var(--x), var(--y));
-  animation: oscilacionLeve 4s ease-in-out infinite;
-  animation-delay: 0s;
-  /* inicia normal */
-}
-
-.circle2 {
-  width: 90vw;
-  max-width: 460px;
-  aspect-ratio: 1 / 1;
-  --x: -54%;
-  --y: 3%;
-  transform: translate(var(--x), var(--y));
-  opacity: 0.8;
-  animation: oscilacionLeveInversa 2s ease-in-out infinite;
-  animation-delay: 2s;
-  /* comienza desfasado */
-}
-
-@keyframes oscilacionLeveInversa {
-  0% {
-    transform: translate(var(--x), var(--y)) scale(1);
-  }
-
-  50% {
-    transform: translate(calc(var(--x) - 10px), var(--y)) scale(1.01);
-  }
-
-  100% {
-    transform: translate(var(--x), var(--y)) scale(1);
-  }
-}
-
-.countdown-hero h2 {
-  margin: 0 0 0.2em 0;
-  font-size: 2em;
-  font-family: Dantina, cursive, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--first-color);
-  z-index: 100;
-}
-
-#countdown {
-  font-family: 'Comfortaa', cursive, sans-serif;
-  font-size: 1.3em;
-  letter-spacing: 0.1em;
-  display: flex;
-  gap: 1.5em;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-
-.countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.countdown-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 50%;
-  font-size: 1.4em;
-  font-weight: bold;
-  color: var(--second-color);
-  /* Rojo del root */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
-  margin-bottom: 0.3em;
-  text-shadow: none;
-  position: relative;
-  z-index: 1;
-}
-
-
-.countdown-label {
-  font-size: 1em;
-  margin-top: 0.7em;
-  color: #fff;
-  opacity: 0.85;
-  letter-spacing: 1px;
-}
-
-/* Responsive para tablets y móviles */
-
-@media (max-width: 899px) {
-  .countdown-hero {
-    padding: 1em 1em;
-    min-width: 200px;
-    max-width: 98vw;
-    font-size: 0.95em;
-  }
-
-
-  .countdown-flowers {
-    overflow: visible;
-  }
-}
-
-@media (max-width: 590px) {
-  #countdown {
-    font-size: 0.9rem;
-    gap: 1em;
-  }
-
-  .countdown-flowers {
-    overflow: visible;
-  }
-
-
-  /* Tablets */
-  @media (max-width: 768px) {
-    .typewrite {
-      font-size: 2rem;
-      margin: 2rem auto;
-      letter-spacing: 1.5px;
-    }
-  }
-
-  /* Móviles */
-  @media (max-width: 480px) {
-    .typewrite {
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-      margin: 2rem auto;
-    }
-
-    .banner-content>h2 {
-      font-size: 1rem;
-      text-align: center;
-    }
-  }
-
-}
 
 /* ********** Banner ********** */
 
@@ -601,7 +274,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
+  align-items: column;
   gap: 2em;
   max-width: 1200px;
   margin: 0 auto;
@@ -654,10 +327,10 @@ button {
   background: rgba(255, 255, 255, 0.92);
   border-radius: 1.5em;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  padding: 2.5em 1.5em 2em 1.5em;
+  padding: 2em;
   max-width: 500px;
   width: 100%;
-  min-height: 410px;
+  min-height: 100%;
   text-align: center;
   margin: 0 auto;
   position: relative;
@@ -703,7 +376,7 @@ button {
   color: var(--white-color);
   border: none;
   border-radius: 2em;
-  padding: 0.6em 0.5em;
+  padding: 0.6em 0.6em;
   font-size: 1em;
   font-family: 'Comfortaa', cursive, sans-serif;
   font-weight: 700;
@@ -770,23 +443,17 @@ button {
 
 @media (max-width: 600px) {
   .rsvp {
-    width: auto; /* <-- esto evita el conflicto */
+    width: auto;    /* <-- esto evita el conflicto */
     margin-left: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
+.typewrite{
+    font-size: 1.5rem;
+  }
 }
 
-
-.rsvp-bg-separator {
-  background: var(--title-color) url('img/fondo.png') center center no-repeat;
-  background-size: cover;
-  /* Cambiado de contain a cover */
-  margin: 0;
-  padding: 1rem 0 1rem 1rem;
-  width: 100%;
-}
 
 
 .btn {

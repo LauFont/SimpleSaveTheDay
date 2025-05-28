@@ -1,4 +1,4 @@
-/* ********** Menu ********** */
+/* ********** Menu ********** 
 ((d) => {
   const $btnMenu = d.querySelector(".menu-btn"),
     $menu = d.querySelector(".menu");
@@ -16,7 +16,7 @@
     $btnMenu.lastElementChild.classList.add("none");
     $menu.classList.remove("is-active");
   });
-})(document);
+})(document);*/
 
 
 /* **** banner**** */
