@@ -265,7 +265,7 @@ button {
 
 .typewrite {
   font-family: 'Dantina', cursive, sans-serif;
-  text-transform:inherit;
+  text-transform: inherit;
   letter-spacing: 2px;
   font-weight: 700;
   font-size: 3rem;
@@ -308,12 +308,26 @@ button {
 
 /* ********** Countdown ********** */
 
+.countdown-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  background: none;
+  bottom: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .countdown-hero {
   position: absolute;
   left: 50%;
-  bottom: 2.5rem;
+  top: 60%;
+  /* O ajusta según lo que necesites */
+  bottom: 0rem;
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 6;
   padding: 4.5em 4.5em;
   /* Aumenta el padding para que el círculo no tape el texto */
   text-align: center;
@@ -328,16 +342,16 @@ button {
 .countdown-flowers {
   position: absolute;
   left: 50%;
-  top: 85%;
+  top: 90%;
   /* O ajusta según lo que necesites */
-  height: 320px;
+  height: auto;
   transform: translate(-50%, -10%);
   /* Centrada y sobresaliendo hacia abajo */
   pointer-events: none;
-  z-index: 3;
+  z-index: 5;
   /* Debajo del countdown, encima del video */
-  overflow: hidden;
-  width: 90vw;
+  overflow: visible;
+  width: 100vw;
   max-width: 520px;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -348,7 +362,7 @@ button {
   position: absolute;
   left: 50%;
   /* El top se ajusta para que queden bajo las flores */
-  top: 50%;
+  top: 60%;
   border: 1.5px solid var(--white-alpha-color);
   /* Borde blanco y fino */
   border-radius: 50%;
@@ -360,30 +374,54 @@ button {
 }
 
 /* Primer círculo: mismo ancho que las flores */
+
 .circle1 {
-  width: 485px;
-  height: 500px;
-  transform: translate(-48%, -1%);
-
+  width: 85vw;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  --x: -48%;
+  --y: -4%;
+  transform: translate(var(--x), var(--y));
+  animation: oscilacionLeve 4s ease-in-out infinite;
+  animation-delay: 0s;
+  /* inicia normal */
 }
 
-/* Segundo círculo: un poco más grande y más abajo */
 .circle2 {
-  width: 460px;
-  height: 460px;
-  transform: translate(-54%, 3%);
+  width: 90vw;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  --x: -54%;
+  --y: 3%;
+  transform: translate(var(--x), var(--y));
   opacity: 0.8;
-  /* Opcional: más sutil */
+  animation: oscilacionLeveInversa 2s ease-in-out infinite;
+  animation-delay: 2s;
+  /* comienza desfasado */
 }
 
+@keyframes oscilacionLeveInversa {
+  0% {
+    transform: translate(var(--x), var(--y)) scale(1);
+  }
+
+  50% {
+    transform: translate(calc(var(--x) - 10px), var(--y)) scale(1.01);
+  }
+
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1);
+  }
+}
 
 .countdown-hero h2 {
   margin: 0 0 0.2em 0;
   font-size: 2em;
   font-family: Dantina, cursive, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--first-color);
+  z-index: 100;
 }
 
 #countdown {
@@ -433,25 +471,57 @@ button {
 }
 
 /* Responsive para tablets y móviles */
-@media (max-width: 900px) {
+
+@media (max-width: 899px) {
   .countdown-hero {
-    padding: 2em 1em;
-    min-width: 180px;
+    padding: 1em 1em;
+    min-width: 200px;
     max-width: 98vw;
     font-size: 0.95em;
   }
-}
 
-@media (max-width: 600px) {
-  .countdown-hero {
-    padding: 1.2em 0.2em;
-    min-width: 120px;
-    max-width: 99vw;
-    font-size: 0.85em;
-    top: 48%;
+
+  .countdown-flowers {
+    overflow: visible;
   }
 }
 
+@media (max-width: 590px) {
+  #countdown {
+    font-size: 0.9rem;
+    gap: 1em;
+  }
+
+  .countdown-flowers {
+    overflow: visible;
+  }
+
+
+/* Tablets */
+@media (max-width: 768px) {
+  .typewrite {
+    font-size: 1.5rem;
+    margin: 2rem auto;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .typewrite {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin: 1.5rem auto;
+  }
+  .banner-content>h2 {
+      font-size: 1rem;
+      text-align: center;
+    }
+}
+
+}
+
+/* ********** Banner ********** */
 
 
 .banner {
@@ -697,10 +767,11 @@ button {
 
 .rsvp-bg-separator {
   background: var(--title-color) url('img/fondo.png') center center no-repeat;
-  background-size: cover; /* Cambiado de contain a cover */
+  background-size: cover;
+  /* Cambiado de contain a cover */
   margin: 0;
   padding: 1rem 0 1rem 0;
-  
+
   width: 100%;
 }
 
@@ -778,17 +849,17 @@ button {
   margin-bottom: var(--second-color);
   padding: 0.5rem;
   text-align: center;
-  color: var(--text-color);
+  color: var(--alternative-color);
 
 }
 
-.footer a {
-  color: var(--gray-dark-color);
+.footer h1 {
+  font-family: Dantina, cursive, sans-serif;
+  font-size: 1.5rem;
+  color: var(--white-color);
 }
 
-.footer a:hover {
-  opacity: 0.1;
-}
+
 
 @media screen and (min-width: 1024px) {
   .footer {
@@ -812,15 +883,4 @@ button {
     box-sizing: border-box !important;
   }
 
-  .circle1,
-  .circle2 {
-    max-width: 95vw !important;
-    width: 95vw !important;
-    left: 50% !important;
-    transform: translate(-50%, -1%) !important;
-  }
-
-  .galeria {
-    padding: 0 !important;
-  }
 }
